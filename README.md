@@ -15,6 +15,10 @@
 
 [UI模块](./doc/UI模块.md)
 
+## 数据模块
+
+[数据模块](./doc/数据模块.md)
+
 ## 事件分发
 
 这里直接new cc.EventTarget。
