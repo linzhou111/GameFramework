@@ -2,6 +2,10 @@
 
 一个基于CocosCreator编辑器的客户端游戏框架
 
+具体教程移步博客：
+[CocosCreator游戏开发框架（一）：是什么 && 为什么](https://blog.csdn.net/wxc237786026/article/details/93741178)
+[CocosCreator游戏开发框架（二）：怎么用](https://blog.csdn.net/wxc237786026/article/details/93872342)
+
 
 ## 配置表插件（excel-killer）
 
