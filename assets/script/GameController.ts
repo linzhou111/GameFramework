@@ -1,38 +1,21 @@
-import { SingletonFactory } from "./utils/SingletonFactory";
 import { Network } from "./network/Network";
-import IDataModel from "./data/model/IDataModel";
-import AccountModel from "./data/model/Account/AccountModel";
-import SystemModel from "./data/model/System/SystemModel";
+import { SingletonFactory } from "./utils/SingletonFactory";
+import GameDataCenter from "./data/GameDataCenter";
+import ProtoLoader from "./network/ProtoLoader";
 
 class GameController {
-    private _tModel: Array<IDataModel> = [];
-
     network: Network = null;
 
-    account: AccountModel = null;
-    system: SystemModel = null;
-
     constructor() {
-
     }
 
-    newModel<T extends IDataModel>(c: { new(): T }): T {
-        let obj = SingletonFactory.getInstance(c);
-        this._tModel.push(obj);
-        return obj
-    }
-
-    clear() {
-        this._tModel.forEach(m => {
-            m.clear();
-        });
-    }
-
-    initModule() {
+    init() {
+        // 新建一个网络单例
         this.network = SingletonFactory.getInstance(Network);
-
-        this.account = this.newModel(AccountModel);
-        this.system = this.newModel(SystemModel);
+        // 初始化数据模块
+        GameDataCenter.initModule();
+        // proto文件加载
+        ProtoLoader.load();
     }
 }
 

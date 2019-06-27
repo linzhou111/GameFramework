@@ -257,8 +257,8 @@ var prefabFunc = function (assetInfo) {
 
 var scriptCodeBody =
 	`import %s from "../../../Data/AutoUI/%s/%s";
-import UIBase from "../../../framework/ui/UIBase";
-import UIHelp from "../../../framework/ui/UIHelp";
+import UIBase from "../UIBase";
+import UIHelp from "../../../utils/UIHelp";
 
 const { ccclass, menu, property } = cc._decorator;
 

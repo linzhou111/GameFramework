@@ -2,6 +2,15 @@ import UIMng from "../manager/UIMng";
 import UIBase, { UIClass } from "../logic/ui/UIBase";
 import { ViewZorder } from "../data/const/ViewZOrder";
 import UITips from "../logic/ui/tips/UITips";
+import UIConfirmDialog from "../logic/ui/tips/UIConfirmDialog";
+
+/**确定框界面参数 */
+export interface DialogParams {
+    title: string,
+    content: string,
+    certainCb?: Function,
+    cancelCb?: Function
+}
 
 export default class UIHelp {
     public static SetLabel(node: cc.Node, value: string | number) {
@@ -58,5 +67,9 @@ export default class UIHelp {
         } else {
             tipUI.showTip(message);
         }
+    }
+
+    public static ShowDialog(data: DialogParams) {
+        UIMng.getInstance().openUI(UIConfirmDialog, ViewZorder.Dialog, null, null, data);
     }
 }
